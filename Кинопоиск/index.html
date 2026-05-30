@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
+    <title>Кинопоиск</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+     <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кинопоиск</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div class="container">
+        <h1>Поиск фильмов</h1>
+        
+        <form id="search-form">
+            <input type="text" id="search-title" placeholder="Введите название фильма..." required>
+            <select id="search-type">
+                <option value="">Все типы</option>
+                <option value="movie">Фильм</option>
+                <option value="series">Сериал</option>
+                <option value="episode">Эпизод</option>
+            </select>
+            <button type="submit">Поиск</button>
+        </form>
+
+        <div id="results-container" class="results-list"></div>
+
+        <div id="pagination-container" class="pagination"></div>
+
+        <div id="details-container" class="movie-details hidden"></div>
+    </div>
+
+   
+    <script src="app.js"></script>
+</body>
+</html>
+
+    <script src="./script.js" defer></script>
+</body>
+</html>
