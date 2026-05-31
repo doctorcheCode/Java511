@@ -1,0 +1,14 @@
+body{
+    background-color: rgb(209, 213, 213) !important;
+    padding-top: 20px !important;
+}
+.container{
+    display: flex !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+}
+.sorted{
+    padding-top: 20px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+}
