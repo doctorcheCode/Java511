@@ -1,0 +1,58 @@
+:root {
+    --primary: #d4a373;
+    --dark: #332e2b;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    color: var(--dark);
+    background-color: #fffdf6;
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+}
+
+.btn-golden {
+    background-color: var(--primary);
+    color: var(--dark);
+    border: none;
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-golden:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    background-color: #c29464;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.product-card {
+    border: none;
+    border-radius: 12px;
+    padding: 24px;
+    height: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+}
+
+footer {
+    background-color: var(--dark);
+    color: #e0e0e0;
+    padding: 40px 0;
+}
