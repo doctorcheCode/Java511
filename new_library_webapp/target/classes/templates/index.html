@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Библиотека - Вход</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Добро пожаловать в библиотеку</h1>
+<div>
+
+    <a th:href="@{/catalog}">
+        <button>Пользователь (гость)</button>
+    </a>
+
+    <a th:href="@{/login}">
+        <button>Администратор</button>
+    </a>
+</div>
+</body>
+</html>

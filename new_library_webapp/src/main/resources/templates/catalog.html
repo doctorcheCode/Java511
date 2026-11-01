@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог книг</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Каталог книг</h1>
+
+
+<div th:unless="${isAdmin}">
+    <h3>Поиск по автору и/или названию</h3>
+    <form th:action="@{/search-guest}" method="get">
+        <input type="text" name="title"  placeholder="Название" th:value="${title}">
+        <input type="text" name="author" placeholder="Автор"    th:value="${author}">
+        <button type="submit">Найти</button>
+    </form>
+</div>
+
+
+<div th:if="${isAdmin}">
+    <h3>Поиск по всем полям</h3>
+    <form th:action="@{/admin/search-all}" method="get">
+        <input type="text" name="keyword" placeholder="Ключевое слово" th:value="${keyword}">
+        <br>
+        <button type="submit">Найти</button>
+    </form>
+    <br>
+    <a th:href="@{/admin/books/new}">
+        <button type="button">Добавить книгу</button>
+    </a>
+    <br>
+</div>
+
+<p>
+    <a th:href="@{/catalog}">Показать весь каталог</a>
+</p>
+
+<hr>
+
+<p th:if="${searched and #lists.isEmpty(books)}">
+    <strong>Ничего не найдено</strong>
+</p>
+
+<p th:if="${!searched and #lists.isEmpty(books)}">
+    <strong>Каталог пуст</strong>
+</p>
+
+<table th:if="${!#lists.isEmpty(books)}" border="1">
+    <thead>
+    <tr>
+        <th>№</th>
+        <th>Название</th>
+        <th>Автор</th>
+        <th>Издательство</th>
+        <th>Год издания</th>
+        <th>Жанр</th>
+        <th>Описание</th>
+        <th th:if="${isAdmin}">Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book, stat : ${books}">
+        <td th:text="${stat.count}">1</td>
+        <td>
+            <a th:href="@{#}" th:text="${book.title}"
+               onclick="return false;">Название</a>
+        </td>
+        <td th:text="${book.author}">Автор</td>
+        <td th:text="${book.publisher}">Издательство</td>
+        <td th:text="${book.publicationYear}">Год</td>
+        <td th:text="${book.genre}">Жанр</td>
+        <td th:text="${book.description}">Описание</td>
+        <td th:if="${isAdmin}">
+            <a th:href="@{/admin/books/edit/{id}(id=${book.id})}">Редактировать</a>
+            <a th:href="@{/admin/books/delete/{id}(id=${book.id})}"
+               onclick="return confirm('Удалить книгу?')">Удалить</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+
+<form th:action="@{/logout}" method="post">
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+    <button type="submit" class="btn btn-danger">Выйти</button>
+</form>
+
+</body>
+</html>
